@@ -5,7 +5,7 @@
 ## 技术栈
 
 Vue3 | Vite4 | Typescript | Vitest | Pnpm | Monorepo  
-组件库暂定Element Plus
+组件库暂定Element Plus  
 格式化插件使用volar  
 目前还没有linter  
 目前还没有CI/CD  
