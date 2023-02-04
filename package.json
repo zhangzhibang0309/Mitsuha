@@ -8,7 +8,13 @@
     "preview:app": "pnpm -F @mitsuha/app run preview",
     "test:unit:app": "pnpm -F @mitsuha/app run test:unit",
     "build-only:app": "pnpm -F @mitsuha/app run build-only",
-    "type-check:app": "pnpm -F @mitsuha/app run type-check"
+    "type-check:app": "pnpm -F @mitsuha/app run type-check",
+    "dev:official": "pnpm -F @mitsuha/official run dev",
+    "build:official": "pnpm -F @mitsuha/official run build",
+    "preview:official": "pnpm -F @mitsuha/official run preview",
+    "test:unit:official": "pnpm -F @mitsuha/official run test:unit",
+    "build-only:official": "pnpm -F @mitsuha/official run build-only",
+    "type-check:official": "pnpm -F @mitsuha/official run type-check"
   },
   "dependencies": {
     "pinia": "^2.0.28",
