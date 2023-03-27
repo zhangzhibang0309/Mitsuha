@@ -9,5 +9,8 @@
     "test:unit": "vitest --environment jsdom --root src/",
     "build-only": "vite build",
     "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue-jsx": "^3.0.1"
   }
 }
