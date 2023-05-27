@@ -1,0 +1,229 @@
+// 滚动条优化
+::-webkit-scrollbar {
+  width: 4px;
+  height: 1px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: none;
+  background: #c6c6c6;
+  -webkit-box-shadow: none;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: none;
+  border-radius: 10px;
+  background: #f1f1f1;
+  -webkit-box-shadow: none;
+}
+
+// 编辑区布局
+.editor {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  &-left,
+  &-right {
+    flex-shrink: 0;
+    width: 270px;
+    background: #fff;
+  }
+  &-left {
+    overflow: auto;
+    &-item {
+      position: relative;
+      box-sizing: border-box;
+      width: 240px;
+      min-height: 90px;
+      padding: 20px;
+      margin: 20px auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 10px;
+      background-color: #f1f1f1;
+      cursor: move;
+      user-select: none;
+      > span {
+        box-sizing: border-box;
+        position: absolute;
+        top: 0;
+        left: 0;
+        // width: 50px;
+        padding: 4px;
+        border-radius: 3px;
+        font-size: 12px;
+        text-align: center;
+        color: #fff;
+        background-color:darkgrey
+      }
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #fff;
+        opacity: 0.01;
+      }
+    }
+  }
+  &-right {
+    padding: 10px 20px;
+  }
+  &-center {
+    flex: 1;
+    padding: 0 10px;
+    background-color: rgb(239, 243, 246);
+    border-left: 1px solid #c1c1c1;
+    border-right: 1px solid #c1c1c1;
+    min-width: 200px;
+    .editor-top {
+      height: 60px;
+      .el-button-group {
+        margin-left: 120px;
+      }
+    }
+    .editor-container {
+      height: calc(100% - 60px);
+      box-sizing: border-box;
+      // background-color: aqua;
+      &-canvas {
+        overflow-x: scroll;
+        height: 100%;
+        &_content {
+          margin: 10px auto;
+          border: 1px solid cadetblue;
+          position: relative;
+        }
+      }
+    }
+  }
+}
+
+.editor-block {
+  position: absolute;
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+.editor-block-focus {
+  &::after {
+    border: 2px dashed red;
+  }
+}
+
+.editor-block-preview {
+  &::after {
+    display: none;
+  }
+}
+
+// 移动虚线展示
+.line-x {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  border-left: 1px dashed red;
+}
+.line-y {
+  position: absolute;
+  left: 0;
+  right: 0;
+  border-top: 1px dashed red;
+}
+
+// 全局查看
+.editor-container-canvas_content2 {
+  margin: 0;
+  border: 1px solid cadetblue;
+  position: relative;
+}
+
+// dropdown
+.dropdown {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  box-shadow: 2px 2px #ccc;
+}
+.dropdown-isShow {
+  display: block;
+}
+.dropdown-item {
+  line-height: 30px;
+  width: 100px;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+  cursor: pointer;
+}
+
+// 区间
+.range {
+  display: inline-flex;
+  width: 220px;
+  min-height: 30px;
+  align-items: center;
+  input {
+    flex: 1;
+    width: 100%;
+  }
+  span {
+    margin: 0 4px;
+    display: inline-flex;
+  }
+}
+
+// 放大缩小
+.block-resize {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: rgb(15, 65, 204);
+  z-index: 1000;
+  user-select: none;
+}
+.block-resize-top {
+  top: -4px;
+  left: calc(50% - 4px)
+}
+.block-resize-bottom {
+  bottom: -4px;
+  left: calc(50% - 4px)
+}
+.block-resize-left {
+  top: calc(50% - 4px);
+  left: -4px;
+}
+.block-resize-right {
+  top: calc(50% - 4px);
+  right: -4px;
+}
+.block-resize-top-left {
+  top: -4px;
+  left: -4px;
+}
+.block-resize-top-right {
+  top: -4px;
+  right: -4px;
+}
+.block-resize-bottom-left {
+  bottom: -4px;
+  left: -4px;
+}
+.block-resize-bottom-right {
+  bottom: -4px;
+  right: -4px;
+}
+
+.el-button, .el-input {
+  transition: none;
+}

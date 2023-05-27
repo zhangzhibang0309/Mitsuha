@@ -1,14 +1,17 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory, RouteRecordRaw  } from "vue-router";
+// import HelloWorld from '../components/HelloWorld.vue'
+
+const routes: RouteRecordRaw[] = [
+  // {
+  //   path: '/',
+  //   component: HelloWorld
+  // }
+]
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
-    {
-      path: '/',
-      name: 'home',
-      component: () => import('../views/editor')
-    },
-  ]
+  // @ts-ignore
+  history: createWebHistory(window.__POWERED_BY_QIANKUN__ ? '/vue3' : '/'),
+  routes
 })
 
 export default router
